@@ -1,0 +1,37 @@
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*.so
+build/
+dist/
+*.egg-info/
+
+# ---------- 虚拟环境 ----------
+.venv/
+venv/
+env/
+.python-version
+
+# ---------- 运行产物 ----------
+logs/
+*.log
+data/screenshots/
+data/*.csv
+data/*.xlsx
+!data/.gitkeep
+
+# ---------- 浏览器缓存 ----------
+chrome-profile/
+selenium-profile/
+
+# ---------- IDE / 系统 ----------
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# ---------- 本地凭据 ----------
+.env
+.env.*
+secrets.json
+config.local.py
