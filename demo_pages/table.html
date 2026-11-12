@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>员工通讯录 · 离线演示数据源</title>
+  <style>
+    body { font-family: "Segoe UI", "Microsoft YaHei", sans-serif; margin: 40px; color: #1f2937; }
+    h1 { font-size: 22px; }
+    p.tip { color: #6b7280; font-size: 13px; }
+    table { border-collapse: collapse; width: 100%; max-width: 960px; margin-top: 16px; }
+    th, td { border: 1px solid #d1d5db; padding: 10px 14px; text-align: left; font-size: 14px; }
+    thead th { background: #1f4e79; color: #fff; }
+    tbody tr:nth-child(even) { background: #f9fafb; }
+    a { color: #1d4ed8; }
+  </style>
+</head>
+<body>
+  <h1>员工通讯录（离线演示数据）</h1>
+  <p class="tip">
+    本页结构与 the-internet /tables 保持一致，供 <code>python main.py --local</code> 离线运行使用，
+    不依赖任何外网请求。
+  </p>
+
+  <!-- 注意：id 与公网站点保持一致，这样抓取脚本的定位器可以完全复用 -->
+  <table id="table1">
+    <thead>
+      <tr>
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Email</th>
+        <th>Due</th>
+        <th>Web Site</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Smith</td><td>John</td><td>jsmith@gmail.com</td><td>$50.00</td>
+        <td><a href="#">http://www.jsmith.com</a></td>
+        <td><a href="#">edit</a> <a href="#">delete</a></td>
+      </tr>
+      <tr>
+        <td>Bach</td><td>Frank</td><td>fbach@yahoo.com</td><td>$51.00</td>
+        <td><a href="#">http://www.frank.com</a></td>
+        <td><a href="#">edit</a> <a href="#">delete</a></td>
+      </tr>
+      <tr>
+        <td>Doe</td><td>Jason</td><td>jdoe@hotmail.com</td><td>$100.00</td>
+        <td><a href="#">http://www.jdoe.com</a></td>
+        <td><a href="#">edit</a> <a href="#">delete</a></td>
+      </tr>
+      <tr>
+        <td>Conway</td><td>Tim</td><td>tconway@earthlink.net</td><td>$50.00</td>
+        <td><a href="#">http://www.timconway.com</a></td>
+        <td><a href="#">edit</a> <a href="#">delete</a></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

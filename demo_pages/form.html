@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>客户资料登记表 · 离线演示目标页</title>
+  <style>
+    body { font-family: "Segoe UI", "Microsoft YaHei", sans-serif; margin: 40px; color: #1f2937; }
+    h1 { font-size: 22px; }
+    form { max-width: 480px; margin-top: 16px; display: grid; gap: 14px; }
+    label { display: grid; gap: 6px; font-size: 14px; }
+    input, textarea { padding: 9px 11px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; }
+    button { padding: 10px 18px; border: 0; border-radius: 6px; background: #1f4e79; color: #fff; font-size: 14px; cursor: pointer; }
+    #result { max-width: 480px; margin-top: 18px; padding: 12px 14px; border-radius: 6px; background: #ecfdf5; color: #065f46; font-size: 14px; }
+    #result.hidden { display: none; }
+  </style>
+</head>
+<body>
+  <h1>客户资料登记表（离线演示目标页）</h1>
+
+  <!--
+    这个页面模拟"内部业务系统"：
+    脚本把从表格抓到的数据填进 #cust_name / #cust_email，点击 #submit-btn，
+    前端校验通过后在 #result 里回写"提交成功"，供脚本断言。
+  -->
+  <form id="registry-form" onsubmit="return handleSubmit(event)">
+    <label>姓名
+      <input id="cust_name" name="cust_name" autocomplete="off" placeholder="例如 John Smith" required>
+    </label>
+    <label>邮箱
+      <input id="cust_email" name="cust_email" type="email" autocomplete="off" placeholder="例如 jsmith@gmail.com" required>
+    </label>
+    <label>备注
+      <textarea id="note" name="note" rows="3" placeholder="自动化任务说明"></textarea>
+    </label>
+    <button id="submit-btn" type="submit">提交登记</button>
+  </form>
+
+  <div id="result" class="hidden"></div>
+
+  <script>
+    function handleSubmit(event) {
+      // 阻止默认提交（避免页面跳转），改成前端直接回写结果，
+      // 这样离线状态下也能完整演示"提交 -> 校验"这一段闭环。
+      event.preventDefault();
+      var name = document.getElementById('cust_name').value.trim();
+      var result = document.getElementById('result');
+      result.classList.remove('hidden');
+      result.textContent = '提交成功：' + name + ' 的资料已登记（离线演示）';
+      return false;
+    }
+  </script>
+</body>
+</html>
